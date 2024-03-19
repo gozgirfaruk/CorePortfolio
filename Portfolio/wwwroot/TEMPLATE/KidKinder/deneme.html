@@ -1,0 +1,60 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tam Ekran Ortalı Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    
+    .form-container {
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      width: 400px;
+    }
+    
+    .form-container label {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    .form-container input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    
+    .form-container button {
+      margin-top: 10px;
+      background-color: #000;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="form-container">
+      <form method="post">
+        <label for="name">Personel Ad-Soyad</label>
+        <input type="text" id="name" name="name" value="İsim" />
+        <br />
+        <button type="submit">Kaydet</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
