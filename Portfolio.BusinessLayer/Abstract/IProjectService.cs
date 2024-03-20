@@ -9,6 +9,5 @@ namespace Portfolio.Business.Abstract
 {
     public interface IProjectService : IGenericService<Project>
     {
-        
     }
 }

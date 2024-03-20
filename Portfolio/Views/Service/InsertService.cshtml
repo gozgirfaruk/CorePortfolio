@@ -1,6 +1,6 @@
-﻿@model Portfolio.Entity.Concrete.Feature
+﻿@model Portfolio.Entity.Concrete.Service
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "InsertService";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -8,29 +8,30 @@
     <div class="card">
         <div class="card-body">
             <p class="card-description">
-                Sayfa : <code>Güncelleme</code>
+                Yeni : <code>Proje Sayfası</code>
             </p>
             <br />
-            @using (Html.BeginForm("Index", "Feature", FormMethod.Post))
+            @using (Html.BeginForm("InsertService", "Service", FormMethod.Post))
             {
                 <form class="forms-sample">
                     <div class="form-group">
-                        @Html.TextBoxFor(x => x.FeatureID, new { @type = "hidden" })
+                        @Html.TextBoxFor(x => x.ServiceID, new { @type = "hidden" })
+
                     </div>
                     <div class="form-group">
                         <label>Başlık</label>
-                        @Html.TextBoxFor(x => x.Header, new { @class = "form-control" })
-                    </div>
-                    <div class="form-group">
-                        <label>Ad Soyad</label>
-                        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
-                    </div>
-                    <div class="form-group">
-                        <label>Ünvan</label>
                         @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
                     </div>
+                    <div class="form-group">
+                        <label>Servise Ait Resim</label>
+                        @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Icon Yolu(mdi)</label>
+                        @Html.TextBoxFor(x => x.IconUrl, new { @class = "form-control" })
+                    </div>
                     <button type="submit" class="btn btn-primary mr-2">Kaydet</button>
-                    <a href="/Default/Index" class="btn btn-dark">Vazgeç</a>
+                    <a href="/Service/Index" class="btn btn-dark">Vazgeç</a>
                 </form>
             }
         </div>

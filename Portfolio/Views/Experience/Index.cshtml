@@ -1,0 +1,45 @@
+﻿@using Portfolio.Entity.Concrete
+@model List<Experience>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title"><a href="/Experience/AddExp" class="btn btn-outline-success">Yeni Deneyim Girişi</a></h4>
+            <p class="card-description">
+                Tablo : <code>Deneyimlerim Listesi</code>
+            </p>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th> # </th>
+                            <th> İcon </th>
+                            <th> Başlık </th>
+                            <th> Yer/Tarih</th>
+                            <th> Düzenle</th>
+                            <th> Sil</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td> @item.ExperienceID</td>
+                                <td><img src="@item.ImageUrl" style="background-color:wheat"/></td>
+                                <th> @item.Name</th>
+                                <td> @item.Date</td>
+                                <td> <a href="/Experience/UpdateExp/@item.ExperienceID" class="btn btn-outline-primary">Düzenle</a> </td>
+                                <td><a href="/Experience/Delete/@item.ExperienceID" class="btn btn-outline-danger">Sil</a> </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

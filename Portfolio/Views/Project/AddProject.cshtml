@@ -1,0 +1,59 @@
+﻿@model Portfolio.Entity.Concrete.Project
+@{
+    ViewData["Title"] = "AddProject";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <p class="card-description">
+                Yeni : <code>Proje Sayfası</code>
+            </p>
+            <br />
+            @using (Html.BeginForm("AddProject", "Project", FormMethod.Post))
+            {
+                <form class="forms-sample">
+                    <div class="form-group">
+                        @Html.TextBoxFor(x => x.ProjectID, new { @type = "hidden" })
+
+                    </div>
+                    <div class="form-group">
+                        <label>Proje Adı</label>
+                        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Name);
+                    </div>
+                    <div class="form-group">
+                        <label>Projeye Ait Resim</label>
+                        @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.ImageUrl);
+                    </div>
+                    <div class="form-group">
+                        <label>Proje Adresi</label>
+                        @Html.TextBoxFor(x => x.ProjectUrl, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.ProjectUrl);
+                    </div>
+                    <div class="form-group">
+                        <label>Başlangıç Tarihi</label>
+                        @Html.TextBoxFor(x => x.StartDate, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Teslim Tarihi</label>
+                        @Html.TextBoxFor(x => x.EndDate, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Geliştirilen Ortam</label>
+                        @Html.TextBoxFor(x => x.Platform, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Tamamlanma Yüzdesi</label>
+                        @Html.TextBoxFor(x => x.Values, new { @class = "form-control" })
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Kaydet</button>
+                    <a href="/Project/Index" class="btn btn-dark">Vazgeç</a>
+                </form>
+            }
+        </div>
+    </div>
+</div>
+

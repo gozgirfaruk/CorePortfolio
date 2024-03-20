@@ -40,5 +40,6 @@ namespace Portfolio.Business.Concrete
         {
             _projectDal.Update(entity); 
         }
+
     }
 }

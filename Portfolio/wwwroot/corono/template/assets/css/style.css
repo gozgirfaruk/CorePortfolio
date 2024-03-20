@@ -20922,6 +20922,7 @@ div.tagsinput {
     .sidebar .nav .menu-items:nth-child(5n+5) .nav-link .menu-icon i {
       color: #fc424a; }
 
+
 /* style for off-canvas menu*/
 @media screen and (max-width: 991px) {
   .sidebar-offcanvas {

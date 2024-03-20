@@ -1,0 +1,54 @@
+﻿@model Portfolio.Entity.Concrete.About
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Hakkımda Tablosu Düzenle</h4>
+            <br />
+            @using (Html.BeginForm("Index", "About", FormMethod.Post))
+            {
+                 <form class="forms-sample">
+                <div class="form-group">
+                    @Html.TextBoxFor(x => x.AboutID, new { @type = "hidden" })
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Başlık</label>
+                        @Html.TextBoxFor(x => x.Title, new { @class = "form-control", @placeholder = "Başlık" })
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Doğum Tarihi</label>
+                        @Html.TextBoxFor(x => x.Age, new { @class = "form-control", @placeholder = "Doğum Tarihi" })
+                </div>
+                <div class="form-group">
+                        <label>e-Posta</label>
+                        @Html.TextBoxFor(x => x.Mail, new { @class = "form-control", @placeholder = "e-Posta" })
+                </div>
+                    <div class="form-group">
+                        <label>Telefon Numarası</label>
+                        @Html.TextBoxFor(x => x.Phone, new { @class = "form-control", @placeholder = "Telefon Numarası" })
+                    </div>
+                    <div class="form-group">
+                        <label>Adres</label>
+                        @Html.TextBoxFor(x => x.Address, new { @class = "form-control", @placeholder = "Adres" })
+                    </div>
+                    <div class="form-group">
+                        <label>Resim Yolu</label>
+                        @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control", @placeholder = "Resim Yolu" })
+                    </div>
+                    <div class="form-group">
+                        <label>Açıklama</label>
+                        @Html.TextAreaFor(x => x.Description,10,10, new { @class = "form-control", @placeholder = "Açıklama" })
+                    </div>
+                <button type="submit" class="btn btn-primary mr-2">Güncelle</button>
+                <a href="/Default/Index/" class="btn btn-dark">Vazgeç</a>
+            </form>
+            }
+           
+        </div>
+    </div>
+</div>

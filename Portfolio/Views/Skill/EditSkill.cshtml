@@ -7,10 +7,11 @@
 <div class="col-md-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Yeni Yetenek Giriş Sayfası</h4>
+            <h4 class="card-title">Yetenek Güncelleme Sayfası</h4>
             <br />
-          
-            <form class="forms-sample" method="post">
+          @using(Html.BeginForm("EditSkill","Skill",FormMethod.Post))
+            {
+                  <form class="forms-sample">
                 <div class="form-group">
                    @Html.TextBoxFor(x=>x.SkillID,new {@type="hidden"})
                 </div>
@@ -28,6 +29,8 @@
                 <button type="submit" class="btn btn-primary mr-2">Güncelle</button>
                <a href="/Skill/Index/" class="btn btn-dark">Vazgeç</a>
             </form>
+            }
+          
         </div>
     </div>
 </div>

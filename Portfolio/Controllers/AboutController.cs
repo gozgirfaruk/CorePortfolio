@@ -5,20 +5,21 @@ using Potfolio.DataAccess.EntityFramework;
 
 namespace Portfolio.UI.Controllers
 {
-    public class FeatureController : Controller
+    public class AboutController : Controller
     {
-        FeatureMenager featureMenager = new FeatureMenager(new EfFeatureDal());
+        AboutMenager aboutMenager = new AboutMenager(new EfAboutDal());
         [HttpGet]
         public IActionResult Index()
         {
-            var values = featureMenager.GetById(1);
+            var values = aboutMenager.GetById(2);
             return View(values);
         }
         [HttpPost]
-        public IActionResult Index(Feature feature)
+        public IActionResult Index(About about)
         {
-            featureMenager.TUpdate(feature);
+            aboutMenager.TUpdate(about);
             return RedirectToAction("Index","Default");
         }
+
     }
 }

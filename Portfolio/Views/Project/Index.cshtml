@@ -1,0 +1,78 @@
+﻿@using Portfolio.Entity.Concrete
+@model List<Project>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="row ">
+    <div class="col-12 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <a href="/Project/AddProject/" class="btn btn-outline-info">Yeni Proje Ekle</a>
+                <br />
+                <p class="card-description">
+                    Tablo : <code>Projelerim</code>
+                </p>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th> # </th>
+                                <th> Resim </th>
+                                <th> Proje Adı </th>
+                                <th> Proje Detay </th>
+                                <th> Başlama Tarihi </th>
+                                <th> Bitiş Tarihi </th>
+                                <th> Oran</th>
+                                <th> Durum</th>
+                                <th> Güncelle</th>
+                                <th> Sil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.ProjectID</td>
+                                    <td>
+                                        <img src=@item.ImageUrl />
+                                    </td>
+                                    <td>  <i class="@item.Platform"></i>   @item.Name </td>
+                                    <td> <a href=@item.ProjectUrl class="btn btn-outline-secondary">Github'da Aç </a></td>
+                                    <td> @item.StartDate  </td>
+                                    <td> @item.EndDate </td>
+                                    <td>  
+                                        @if (item.Status == true)
+                                        {
+                                            <a href="/Project/StatusChanger/@item.ProjectID" class="btn btn-outline-success">Aktif</a>
+                                        }
+                                        else
+                                        {
+                                            <a href="/Project/StatusChanger/@item.ProjectID" class="btn btn-outline-danger">Pasif</a>
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (item.Values != 100)
+                                        {
+                                            <div class="badge badge-outline-warning">Devam Ediyor</div>
+                                        }
+                                        else
+                                        {
+                                             <div class="badge badge-outline-primary">Tamamlandı</div>
+                                        }
+
+                                    </td>
+                                    <td><a href="/Project/UpdateProject/@item.ProjectID" class="btn btn-outline-info">Güncelle</a></td>
+                                    <td>
+                                        <a href="/Project/DeleteProject/@item.ProjectID" class="btn btn-outline-danger"><span class="mdi mdi-delete-empty"></span></a>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
