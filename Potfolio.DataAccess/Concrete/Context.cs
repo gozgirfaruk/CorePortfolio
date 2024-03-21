@@ -3,6 +3,7 @@ using Portfolio.Entity.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,7 +27,10 @@ namespace Potfolio.DataAccess.Concrete
         public DbSet<Service> Services { get; set; }
         public DbSet<Skill> Skills { get; set; }
         public DbSet<Social> Socials { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<UserMessage> UserMessages { get; set; }
 
+        public DbSet<ToDoList> ToDoLists { get; set; }
 
 
 

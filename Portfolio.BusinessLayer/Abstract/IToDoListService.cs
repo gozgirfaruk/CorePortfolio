@@ -5,10 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Potfolio.DataAccess.Abstract
+namespace Portfolio.Business.Abstract
 {
-  
-    public interface IAboutDal : IGenericDal<About>
+    public interface IToDoListService : IGenericService<ToDoList>
     {
     }
 }
