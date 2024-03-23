@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Portfolio.Entity.Concrete;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Potfolio.DataAccess.Concrete
 {
-    public class Context :DbContext
+    public class Context :IdentityDbContext<WriterUser,WriterRole,int>
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -31,6 +32,7 @@ namespace Potfolio.DataAccess.Concrete
         public DbSet<UserMessage> UserMessages { get; set; }
 
         public DbSet<ToDoList> ToDoLists { get; set; }
+        public DbSet<Announcement> Announcements { get; set; }
 
 
 

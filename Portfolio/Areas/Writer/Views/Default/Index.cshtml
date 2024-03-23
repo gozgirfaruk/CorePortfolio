@@ -1,8 +1,83 @@
-﻿
+﻿@using Portfolio.Entity.Concrete
+@model List<Announcement>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
+@{string renk="";}
+<!DOCTYPE html>
+<html lang="en">
 
-<h1>Index</h1>
 
+
+<body>
+
+    <div class="container-fluid page-body-wrapper">
+
+        <!-- partial:../../partials/_sidebar.html -->
+        <!-- partial -->
+
+        <div class="content-wrapper">
+
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">DUYURULAR PANOSU</h4>
+                        <p class="card-description">
+                            Tablo:  <code>.Duyurular</code>
+                        </p>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Başlık</th>
+                                        <th>Tarih</th>
+                                        <th>Tür</th>
+                                        <th>Detay</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach(var item in Model)
+                                    {
+                                        if(item.Status=="Yeni Yazı")
+                                        {
+                                            renk = "badge badge-danger";
+                                        }
+                                        if (item.Status == "Blog")
+                                        {
+                                            renk = "badge badge-warning";
+                                        }
+                                        if (item.Status == "Yeni Video")
+                                        {
+                                            renk = "badge badge-secondary";
+                                        }
+                                        if (item.Status == "Konferans")
+                                        {
+                                            renk = "badge badge-primary";
+                                        }
+                                        <tr>
+                                        <th>@item.ID</th>
+                                        <td>@item.Title</td>
+                                        <td>@item.Date.ToString("dd.MMM.yyyy")</td>
+                                        <td><label class="@renk">@item.Status</label></td>
+                                            <td><a href="/Writer/Default/announcementDetail/@item.ID" class="btn btn-outline-secondary">Görüntüle</a></td>
+                                    </tr>
+                                    }
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- page-body-wrapper ends -->
+    </div>
+
+</body>
+
+</html>

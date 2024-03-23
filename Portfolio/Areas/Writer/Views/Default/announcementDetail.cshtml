@@ -1,0 +1,30 @@
+﻿@model Portfolio.Entity.Concrete.Announcement
+@{
+    ViewData["Title"] = "announcementDetail";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Duyuru Detayları</h4>
+          
+            <form class="forms-sample">
+                <div class="form-group">
+                    <label for="exampleInputName1">ID</label>
+                    @Html.TextBoxFor(x=>x.ID, new {@class="form-control" , @readonly="readonly"})
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Başlık</label>
+                    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword4">İçerik</label>
+                    @Html.TextAreaFor(x => x.Content,4,10, new { @class = "form-control" })
+                </div>
+                
+                <a href="/Writer/Default/Index/" class="btn btn-secondary">Geri Dön</a>
+            </form>
+        </div>
+    </div>
+</div>
