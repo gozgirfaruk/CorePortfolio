@@ -27,6 +27,7 @@ namespace Portfolio.UI.Areas.Writer.Controllers
         public async Task<IActionResult> SignUp(UserRegisterViewModel p)
         {
 
+
             WriterUser w = new WriterUser()
             {
                 Name = p.Name,
@@ -35,6 +36,7 @@ namespace Portfolio.UI.Areas.Writer.Controllers
                 UserName = p.UserName,
                 ImageUrl = p.ImageUrl
             };
+
             if (p.Password == p.ConfirmPassword)
             {
                 var result = await _userMenager.CreateAsync(w, p.Password);
@@ -50,11 +52,9 @@ namespace Portfolio.UI.Areas.Writer.Controllers
                         ModelState.AddModelError("", item.Description);
                     }
                 }
-                return View(p);
-
-
             }
             return View(p);
         }
     }
 }
+

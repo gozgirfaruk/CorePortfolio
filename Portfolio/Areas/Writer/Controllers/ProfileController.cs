@@ -19,11 +19,7 @@ namespace Portfolio.UI.Areas.Writer.Controllers
         public async Task<IActionResult> Index()
         {
             var values = await _userManager.FindByNameAsync(User.Identity.Name);
-            UserEditViewModel model = new UserEditViewModel();
-            model.Name = values.Name;
-            model.Surname = values.Surname;
-            model.PictureURL = values.ImageUrl;
-            return View(model);
+            return View(values);
         }
 
         [HttpPost]

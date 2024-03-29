@@ -7,6 +7,7 @@ using Potfolio.DataAccess.EntityFramework;
 namespace Portfolio.UI.Areas.Writer.Controllers
 {
     [Area("Writer")]
+    [Authorize]
     public class DefaultController : Controller
     {
         AnnouncementMenager announcement = new AnnouncementMenager(new EfAnnouncementDal());
