@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Potfolio.DataAccess.Abstract
 {
-    public interface IUserDal : IGenericDal<User>
+    public interface IWriterMessageDal : IGenericDal<WriterMessage>
     {
     }
 }

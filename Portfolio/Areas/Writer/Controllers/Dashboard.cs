@@ -20,7 +20,7 @@ namespace Portfolio.UI.Areas.Writer.Controllers
         public async Task<IActionResult> Index()
         {
             var values = await _userMenager.FindByNameAsync(User.Identity.Name);
-            ViewBag.v = values.Name + " " + values.Surname;
+            ViewBag.name = values.Name + " " + values.Surname;
 
             string api = "1746bc23a2eb8dfe7917ee89fe097951";
             string connection = "https://api.openweathermap.org/data/2.5/weather?q=mersin&mode=xml&lang=tr&units=metric&appid=" + api;

@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 
 namespace Portfolio.Business.Abstract
 {
-    public interface IUserService : IGenericService<User>
+    public interface IWriterMessageService : IGenericService<WriterMessage>
     {
+        List<WriterMessage> GetListSenderMessage(string p);
+        List<WriterMessage> GetListReceiverMessage(string p);
     }
 }

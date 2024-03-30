@@ -7,12 +7,20 @@
                 <span class="menu-title">Dashboard</span>
             </a>
         </li>
-      
+     
         <li class="nav-item">
-            <a class="nav-link"  href="/Writer/Message/Index" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
                 <i class="fa-duotone fa-messages"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <span class="menu-title">Mesajlar</span>
+                <i class="menu-arrow"></i>
             </a>
+            <div class="collapse" id="auth">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="/Writer/Message/AddMessage"> Yeni Mesaj Oluştur </a></li>
+                    <li class="nav-item"> <a class="nav-link" href="/Writer/Message/ReceiverMessage"> Gelen Mesajlar </a></li>
+                    <li class="nav-item"> <a class="nav-link" href="/Writer/Message/SenderMessage"> Gönderilen Mesajlar </a></li>
+                </ul>
+            </div>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="/Writer/Default/Index" aria-expanded="false" aria-controls="form-elements">

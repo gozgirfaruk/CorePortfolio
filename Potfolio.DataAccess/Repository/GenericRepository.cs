@@ -3,6 +3,7 @@ using Potfolio.DataAccess.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,6 +17,12 @@ namespace Potfolio.DataAccess.Repository
             using var db = new Context();
             db.Remove(item);
             db.SaveChanges();
+        }
+
+        public List<T> GetbyFilter(Expression<Func<T, bool>> filter)
+        {
+            using var c = new Context();    
+            return c.Set<T>().Where(filter).ToList();
         }
 
         public T GetById(int id)

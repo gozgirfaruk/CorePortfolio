@@ -7,11 +7,11 @@ namespace Portfolio.UI.ViewComponents.DashBoard
 {
     public class ContactList : ViewComponent
     {
-        UserMessageMenager _userMessageMenager=new UserMessageMenager(new EfUserMessageMenager());
+        
         public IViewComponentResult Invoke()
         {
-            var values = _userMessageMenager.UserMessageWithUser();
-            return View(values);
+            
+            return View();
         }
     }
 }
