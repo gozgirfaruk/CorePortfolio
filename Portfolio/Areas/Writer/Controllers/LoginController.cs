@@ -36,5 +36,8 @@ namespace Portfolio.UI.Areas.Writer.Controllers
             }
             return View();
         }
+
+
+    
     }
 }
