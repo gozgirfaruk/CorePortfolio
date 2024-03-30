@@ -8,6 +8,7 @@ using System.Xml.Linq;
 namespace Portfolio.UI.Areas.Writer.Controllers
 {
     [Area("Writer")]
+    [Route("Writer/[controller]/[action]")]
     public class Dashboard : Controller
     {
         private readonly UserManager<WriterUser> _userMenager;
@@ -27,9 +28,9 @@ namespace Portfolio.UI.Areas.Writer.Controllers
             XDocument document = XDocument.Load(connection);
             ViewBag.j = document.Descendants("temperature").ElementAt(0).Attribute("value").Value;
             Context c = new Context();
-            ViewBag.a = 0;
+            ViewBag.a = c.WriterMessages.Where(x => x.Receiver == values.Email).Count();
             ViewBag.b = c.Announcements.Count();
-            ViewBag.e= 0;
+            ViewBag.e= c.Users.Count();
             ViewBag.d=c.Skills.Count(); 
             return View();
         }

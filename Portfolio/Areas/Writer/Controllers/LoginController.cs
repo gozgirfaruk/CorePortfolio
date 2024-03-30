@@ -6,6 +6,7 @@ using Portfolio.UI.Areas.Writer.Models;
 namespace Portfolio.UI.Areas.Writer.Controllers
 {
     [Area("Writer")]
+    [Route("Writer/[controller]/[action]")]
     public class LoginController : Controller
     {
         private readonly SignInManager<WriterUser> _signInManager;
@@ -37,7 +38,13 @@ namespace Portfolio.UI.Areas.Writer.Controllers
             return View();
         }
 
+        public async Task<IActionResult> LogOut()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Login");
 
-    
+        }
+
+
     }
 }

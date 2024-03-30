@@ -6,6 +6,7 @@ using Portfolio.UI.Areas.Writer.Models;
 namespace Portfolio.UI.Areas.Writer.Controllers
 {
     [Area("Writer")]
+    [Route("Writer/[controller]/[action]")]
     public class ProfileController : Controller
     {
         private readonly UserManager<WriterUser> _userManager;

@@ -10,7 +10,7 @@ using Potfolio.DataAccess.EntityFramework;
 namespace Portfolio.UI.Areas.Writer.Controllers
 {
     [Area("Writer")]
-    [Route("Writer/[controller]/[action]")]
+    [Route("Writer/Message")]
     public class MessageController : Controller
     {
         WriterMessageMenager _messageDal = new WriterMessageMenager(new EfWriterMessageDal());
@@ -21,6 +21,8 @@ namespace Portfolio.UI.Areas.Writer.Controllers
             _userMenager = userMenager;
         }
 
+        [Route("")]
+        [Route("ReceiverMessage")]
         public async Task<IActionResult> ReceiverMessage(string p)
         {
             var values = await _userMenager.FindByNameAsync(User.Identity.Name);
@@ -29,7 +31,8 @@ namespace Portfolio.UI.Areas.Writer.Controllers
 
             return View(messageList);
         }
-
+        [Route("")]
+        [Route("SenderMessage")]
         public async Task<IActionResult> SenderMessage(string p)
         {
             var values = await _userMenager.FindByNameAsync(User.Identity.Name);
@@ -38,14 +41,13 @@ namespace Portfolio.UI.Areas.Writer.Controllers
 
             return View(messageList);
         }
-
-
+        [Route("ReceiverMessageDetail/{id}")]
         public IActionResult ReceiverMessageDetail(int id)
         {
             WriterMessage writerMessage = _messageDal.GetById(id);
             return View(writerMessage);
         }
-
+        [Route("SenderMessageDetail/{id}")]
         public IActionResult SenderMessageDetail(int id)
         {
             WriterMessage writerMessage = _messageDal.GetById(id);
@@ -53,12 +55,16 @@ namespace Portfolio.UI.Areas.Writer.Controllers
         }
 
         [HttpGet]
+        [Route("")]
+        [Route("AddMessage")]
         public IActionResult AddMessage()
         {
             return View();
         }
 
         [HttpPost]
+        [Route("")]
+        [Route("AddMessage")]
         public async Task<IActionResult> AddMessage(WriterMessage p)
         {
             var values = await _userMenager.FindByNameAsync(User.Identity.Name);
