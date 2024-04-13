@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Portfolio.Business.Concrete;
 using Portfolio.Entity.Concrete;
 using Potfolio.DataAccess.EntityFramework;
 
 namespace Portfolio.UI.Controllers
 {
+    
     public class SkillController : Controller
     {
         SkillMenager m_SkillMenager = new SkillMenager(new EfSkillDal());

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Portfolio.Entity.Concrete;
 using Portfolio.UI.Areas.Writer.Models;
@@ -7,6 +8,7 @@ namespace Portfolio.UI.Areas.Writer.Controllers
 {
     [Area("Writer")]
     [Route("Writer/[controller]/[action]")]
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         private readonly SignInManager<WriterUser> _signInManager;

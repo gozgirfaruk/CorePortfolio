@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Hosting;
 using Portfolio.Entity.Concrete;
 using Potfolio.DataAccess.Concrete;
@@ -10,6 +11,15 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<Context>();
 builder.Services.AddIdentity<WriterUser, WriterRole>().AddEntityFrameworkStores<Context>();
 builder.Services.AddControllersWithViews();
+builder.Services.AddMvc();
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.Cookie.HttpOnly = true;
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+    options.AccessDeniedPath = "/ErrorPage/Index/";
+    options.LoginPath = "/Writer/Login/Index";
+});
+  
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -19,7 +29,7 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-
+app.UseStatusCodePagesWithReExecute("/ErrorPage/Error404/");
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseAuthentication();
