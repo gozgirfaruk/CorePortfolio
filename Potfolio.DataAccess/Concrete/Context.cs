@@ -34,6 +34,8 @@ namespace Potfolio.DataAccess.Concrete
 
         public DbSet<WriterMessage> WriterMessages { get; set; }
 
+        public DbSet<UserSys> UserSyses { get; set; }
+        public DbSet<UserMessage> UserMessages { get; set; }
 
     }
 }

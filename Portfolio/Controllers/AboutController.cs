@@ -8,9 +8,11 @@ namespace Portfolio.UI.Controllers
     public class AboutController : Controller
     {
         AboutMenager aboutMenager = new AboutMenager(new EfAboutDal());
-        [HttpGet]
+
+		[HttpGet]
         public IActionResult Index()
         {
+            
             var values = aboutMenager.GetById(2);
             return View(values);
         }

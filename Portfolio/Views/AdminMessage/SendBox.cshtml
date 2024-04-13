@@ -1,0 +1,42 @@
+﻿@using Portfolio.Entity.Concrete
+@model List<WriterMessage>
+
+@{
+    ViewData["Title"] = "SendBox";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <p class="card-description">
+                Tablo : <code>Giden Kutusu</code>
+            </p>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th> # </th>
+                            <th> Alıcı </th>
+                            <th> Konu </th>
+                            <th> Tarih</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td> @item.WriterMessageID</td>
+                                <th> @item.ReceiverNAme</th>
+                                <th> @item.Subject</th>
+                                <th> @item.Date.ToShortDateString()</th>
+                                <td> <a href="/AdminMessage/SendDetail/@item.WriterMessageID" class="btn btn-outline-primary btn-round">Mesajı Gör</a> </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
