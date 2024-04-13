@@ -1,0 +1,45 @@
+﻿@using Portfolio.Entity.Concrete
+@model List<Social>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row ">
+    <div class="col-12 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <a href="/SocialMedia/Insert/" class="btn btn-outline-info">Yeni Medya Ekle</a>
+                <br />
+                <p class="card-description">
+                    Tablo : <code>Sosyal Medya Hesaplarım</code>
+                </p>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th> # </th>
+                                <th> Medya İsmi</th>
+                                <th> Medya Uzantısı </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach(var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.SocialID</td>
+                                    <td>
+                                        <i class="@item.Icon">@item.Name</i>
+                                    </td>
+                                    <td><a href=@item.Url class="btn btn-outline-secondary"><i class="mdi mdi-book-open-page-variant"></i>Aç</a></td>
+                                    <td><a href="/SocialMedia/Detail/@item.SocialID" class="btn btn-outline-info">Güncelle</a></td>
+                                    <td><a href="/SocialMedia/Delete/@item.SocialID" class="btn btn-outline-danger"><i class="mdi mdi-alert-circle"></i>Sil</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

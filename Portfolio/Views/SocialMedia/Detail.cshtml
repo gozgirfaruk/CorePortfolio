@@ -1,0 +1,37 @@
+﻿@model Portfolio.Entity.Concrete.Social
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Sosyal Medya Güncelleme Sayfası</h4>
+            <br />
+            @using (Html.BeginForm("Detail", "SocialMedia", FormMethod.Post))
+            {
+                <form class="forms-sample">
+                    <div class="form-group">
+                        @Html.TextBoxFor(x => x.SocialID, new { @type = "hidden" })
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Sosyal Platform</label>
+                        @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @placeholder = "Sosyal Platform" })
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Medya Uzantısı</label>
+                        @Html.TextBoxFor(x => x.Url, new { @class = "form-control", @placeholder = "Medya Uzantısı" })
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Icon</label>
+                        @Html.TextBoxFor(x => x.Icon, new { @class = "form-control", @placeholder = "Icon" })
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Güncelle</button>
+                    <a href="/SocialMedia/Index/" class="btn btn-dark">Vazgeç</a>
+                </form>
+            }
+
+        </div>
+    </div>
+</div>

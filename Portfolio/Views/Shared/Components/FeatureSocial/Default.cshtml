@@ -1,0 +1,22 @@
+﻿@using Portfolio.Entity.Concrete
+@model List<Social>
+<link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/all.css">
+<div class="social-nav" data-aos="fade-up" data-aos-delay="200">
+    <nav role="navigation">
+        <ul class="nav justify-content-left">
+            @foreach(var item in Model)
+            {
+             
+                <li>
+                    &nbsp;
+                    <a href="@item.Url" class="@item.Icon">
+                        &nbsp;
+                  </a>
+                  
+              </li>
+             
+            }
+           
+        </ul>
+    </nav>
+</div>
