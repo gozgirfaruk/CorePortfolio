@@ -3,12 +3,20 @@
 
 1. *Vitrin Paneli* = Bu panel, diğer kullanıcılara portföyümüzdeki projeleri ve becerilerimizi tanıtmak için kullanılan, her kesime açık bir sayfadır.  
 2. *Admin Paneli* = Portföy uygulamamızın arka plandaki komuta merkezidir. Vitrin paneli içeriklerini özelleştirmemize ve yönetmemize, yazarları kontrol etmemize olanak sağlar.
-3. *Yazar Paneli*  = 
+3. *Yazar Paneli*  = Portföy uygulamamızdaki yazarların özel alanıdır. Bu panelde yazarlar, diğer yazarlar ile iletişim kurabilir, uygulama ile ilgili duyuru ve güncellemeleri takip edebilir.
+***
 
+## Kullanılan Teknolojiler
 
-
-
-
+* .Net Core Mvc
+* MsSql
+* Entity Framework (ORM)-CodeFirst
+* n-Tier Architecture
+* Fluent Validation
+* Identity & Roles
+* API
+* Repository Design Pattern
+  
 # UYGULAMA İÇİNDEN BAZI GÖRÜNTÜLER
 
 ## Vitrin Paneli
