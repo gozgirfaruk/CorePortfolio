@@ -1,9 +1,9 @@
 ## Proje Hakkında 
 * Proje gelişmiş bir portfolyo uygulaması sunmaktadır. Kullanıcıların kendi portföy uygulamalarını oluşturmalarına ve dinamik bir şekilde özelleştirmelerine olanak sağlar.Uygulama içerisinde 3 panel karşılamaktadır.
 
-1. *Vitrin Paneli* = 
-2. *Admin Paneli* = 
-3. *Yazar Paneli*  =
+1. *Vitrin Paneli* = Bu panel, diğer kullanıcılara portföyümüzdeki projeleri ve becerilerimizi tanıtmak için kullanılan, her kesime açık bir sayfadır.  
+2. *Admin Paneli* = Portföy uygulamamızın arka plandaki komuta merkezidir. Vitrin paneli içeriklerini özelleştirmemize ve yönetmemize, yazarları kontrol etmemize olanak sağlar.
+3. *Yazar Paneli*  = 
 
 
 
