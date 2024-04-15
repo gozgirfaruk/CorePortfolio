@@ -1,0 +1,87 @@
+﻿@using Portfolio.Entity.Concrete
+@model List<Experience>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="col-md-6">
+    <div class="p-2">
+        <button type="button" class="btn btn-outline-primary btn-round" id="btngetlistall">Verileri Getir</button>
+        <button type="button" class="btn btn-outline-info btn-round" id="btnadd">Veri Ekle</button>
+        <button type="button" class="btn btn-outline-warning btn-round" id="btnid">ID ile getir</button>
+    </div>
+</div>
+
+
+
+<div class="p-2" id="listexperience">
+    Buraya Veriler Gelecek
+</div>
+
+<div class="col-md-12">
+    <h1>Ekleme Paneli</h1>
+    <input type="text" class="form-control" id="inpname" placeholder="Başlık" />
+    <br />
+    <input type="text" class="form-control" id="inpdate" placeholder="Tarih" />
+</div>
+
+<div class="col-md-12">
+    <h1>Id'ye Göre Getirme Paneli</h1>
+    <input type="text" class="form-control" id="inpid" placeholder="ID Getir" />
+
+</div>
+
+
+@section scripts
+{
+
+    <script>
+        $("#btngetlistall").click(function () {
+            $.ajax({
+
+                contentType: "application/json",
+                dataType: "json",
+                type: "Get",
+                url: "/Experience2/ListExperience",
+
+                success: function (funk) {
+                    let values = JQuery.parseJson(funk);
+                    console.log(values);
+
+                    let htmlst = "<table class=table table-bordered><tr> <th>ID</th> <th>Başlık</th><th>Tarih</th></tr>";
+                    $.each(values, (index, value) => {
+                        htmlst += `<tr><td>${value.ExperienceID}</td> <td>${value.Name}</td><td>${value.Date}</td></tr>`
+                    });
+
+                    htmlst += "</table>";
+                    $("#listexperience").html(htmlst);
+                }
+            });
+        });
+
+        $("#btnadd").click(function () {
+            let values = {
+                Name: $("inpname").val(),
+                Date: $("inpdate").val()
+            };
+            $.ajax({
+                type: "Post",
+                url: "/Experince2/AddExperince/",
+                data: values,
+                succcess: function (funk1) {
+                    let resutl = jQuery.parseJson(a);
+                    alert(resutl.Name + "Başarılı bir şekilde eklendi")
+                }
+            });
+        });
+
+        $("#btnid").click(x => {
+            let id = $("inpid").val();
+            consol.log(id);
+        });
+
+    </script>
+}
+<script src="~/lib/jquery/dist/jquery.js"></script>
